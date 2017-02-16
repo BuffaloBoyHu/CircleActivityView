@@ -49,12 +49,12 @@ class ActivityView: UIView {
         let colorAnimation = CAKeyframeAnimation.init(keyPath: "strokeColor")
         
         colorAnimation.values = [UIColor.colorWithHex(hex: 0xffce3b, alpha: 1).cgColor,UIColor.red.cgColor,UIColor.colorWithHex(hex: 0xffce3b, alpha: 1).cgColor]
-        colorAnimation.timingFunctions = [CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseIn)]
         colorAnimation.isRemovedOnCompletion = false
         colorAnimation.repeatCount = Float.infinity
         
         let animationGroup = CAAnimationGroup.init()
         animationGroup.repeatCount = Float.infinity
+        animationGroup.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
         animationGroup.duration = 2
         animationGroup.animations = [rotationAnimation,colorAnimation]
         shapeLayer.add(animationGroup, forKey: "group")
